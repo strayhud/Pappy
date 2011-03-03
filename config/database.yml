@@ -1,0 +1,18 @@
+development:
+  adapter: mysql
+  database: pappy_development
+  encoding: utf8
+  username: root
+  password:
+  pool: 5
+  socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql
+  database: pappy_production
+  encoding: utf8
+  username: root
+  password:
+  pool: 5
+  socket: /tmp/mysql.sock
+

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer: MyString
+  platform: MyString
+  technologies: MyString
+  size: MyString
+  audience: MyString
+  purpose: MyString
+  recording: MyString
+  description: MyText
+
+two:
+  customer: MyString
+  platform: MyString
+  technologies: MyString
+  size: MyString
+  audience: MyString
+  purpose: MyString
+  recording: MyString
+  description: MyText
