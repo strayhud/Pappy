@@ -12,12 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :customer %><br />
+    <%= f.label "Customer Name:" %>
     <%= f.text_field :customer %>
   </div>
   <div class="field">
-    <%= f.label :platform %><br />
-    <%= f.text_field :platform %>
+    <%= f.label "Meeting Purpose:" %>
+    <%= f.text_field :purpose %>
+    <%= f.label "Record?" %>
+    <%= check_box_tag 'record', 'yes', @qform.recording %>
+  </div>
+  
+  <div class="field">
+    <div class="form_row">
+        <label for="platform_names[]">Platform(s):</label>
+        <% for platform in Platform.find(:all) do %>
+          <%= check_box_tag 'platform_names[]', platform.name, platform_included?(platform.name,@qform.platform) %>
+          <%= platform.name %>
+        <% end %>
+    </div>
   </div>
   <div class="field">
     <%= f.label :technologies %><br />
@@ -30,14 +42,6 @@
   <div class="field">
     <%= f.label :audience %><br />
     <%= f.text_field :audience %>
-  </div>
-  <div class="field">
-    <%= f.label :purpose %><br />
-    <%= f.text_field :purpose %>
-  </div>
-  <div class="field">
-    <%= f.label :recording %><br />
-    <%= f.text_field :recording %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

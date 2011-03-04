@@ -41,6 +41,12 @@ class QformsController < ApplicationController
   # POST /qforms.xml
   def create
     @qform = Qform.new(params[:qform])
+    
+    p = params[:platform_names]
+    @qform.platform = p.join ',' unless p.nil?
+    @qform.recording = params[:record] != nil
+    
+    puts "RECORDING=#{@qform.recording}"
 
     respond_to do |format|
       if @qform.save

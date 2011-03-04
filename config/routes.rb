@@ -1,4 +1,9 @@
 Pappy::Application.routes.draw do
+  
+  resources :platforms
+
+  root :to => "qforms#index"
+    
   resources :qforms
 
   # The priority is based upon order of creation:
