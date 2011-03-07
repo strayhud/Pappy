@@ -42,12 +42,8 @@ class QformsController < ApplicationController
   def create
     @qform = Qform.new(params[:qform])
     
-    p = params[:platform_names]
-    @qform.platform = p.join ',' unless p.nil?
-    @qform.recording = params[:record] != nil
+    clear_and_update(@qform,params)
     
-    puts "RECORDING=#{@qform.recording}"
-
     respond_to do |format|
       if @qform.save
         format.html { redirect_to(@qform, :notice => 'Qform was successfully created.') }
@@ -64,6 +60,8 @@ class QformsController < ApplicationController
   def update
     @qform = Qform.find(params[:id])
 
+    clear_and_update(@qform,params)
+    
     respond_to do |format|
       if @qform.update_attributes(params[:qform])
         format.html { redirect_to(@qform, :notice => 'Qform was successfully updated.') }
@@ -85,5 +83,23 @@ class QformsController < ApplicationController
       format.html { redirect_to(qforms_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def clear_and_update(q,params)
+    q.recording = params[:record]
+    q.platform = array_to_string(params[:platform_names])
+    q.opportunity = array_to_string(params[:opportunity_names])
+    q.audience = array_to_string(params[:audience_names])
+    q.technologies = array_to_string(params[:technology_names])
+  end
+  
+  def array_to_string(p)
+    attr = nil
+    if (p!=nil)
+      attr = p.join ','
+    end
+    attr
   end
 end

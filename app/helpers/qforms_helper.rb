@@ -1,5 +1,5 @@
 module QformsHelper
-  def platform_included?(name_to_check,list_of_names)
+  def name_in_array?(name_to_check,list_of_names)
     if (list_of_names.nil?)
       return false
     else

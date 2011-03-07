@@ -44,7 +44,7 @@ class PlatformsController < ApplicationController
 
     respond_to do |format|
       if @platform.save
-        format.html { redirect_to(@platform, :notice => 'Platform was successfully created.') }
+        format.html { redirect_to(platforms_url) }
         format.xml  { render :xml => @platform, :status => :created, :location => @platform }
       else
         format.html { render :action => "new" }

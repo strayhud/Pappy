@@ -4,7 +4,7 @@ class CreateQforms < ActiveRecord::Migration
       t.string :customer
       t.string :platform
       t.string :technologies
-      t.string :size
+      t.string :opportunity
       t.string :audience
       t.string :purpose
       t.string :recording

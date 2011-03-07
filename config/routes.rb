@@ -1,5 +1,11 @@
 Pappy::Application.routes.draw do
   
+  resources :technologies
+
+  resources :audiences
+
+  resources :opportunities
+
   resources :platforms
 
   root :to => "qforms#index"
