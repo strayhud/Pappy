@@ -1,45 +1,41 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @qform.customer %></h1>
 
-<p>
-  <b>Customer:</b>
-  <%= @qform.customer %>
-</p>
+<table id="show_table">
+  <tr>
+    <td id="show_col1"><label>Purpose:</label></td>
+    <td id="show_col2"><%= @qform.purpose %></td>
+  </tr>
+  <tr>
+    <td><label>Platform:</label></td>
+    <td><%= @qform.platform %></td>
+  </tr>
+  <tr>
+    <td><label>Audience:</label></td>
+    <td><%= @qform.audience %></td>
+  </tr>
+  <tr>
+    <td><label>Opportunity Size:</label></td>
+    <td><%= @qform.opportunity %></td>
+  </tr>
+  <tr>
+    <td><label>Technologies:</label></td>
+    <td><%= @qform.technologies %></td>
+  </tr>
+  <tr>
+    <td><label>Recording:</label></td>
+    <td><%= @qform.recording %></td>
+  </tr>
+  <tr>
+    <td><label>Description:</label></td>
+    <td><%= @qform.description %></td>
+  </tr>
+</table>
 
-<p>
-  <b>Purpose:</b>
-  <%= @qform.purpose %>
-</p>
+<br/>
+<%= link_to 'Ok', qforms_path, :class=>"link_button"  %>
 
-<p>
-  <b>Platform:</b>
-  <%= @qform.platform %>
-</p>
-
-<p>
-  <b>Audience:</b>
-  <%= @qform.audience %>
-</p>
-
-<p>
-  <b>Opportunity Size:</b>
-  <%= @qform.opportunity %>
-</p>
-
-<p>
-  <b>Technologies:</b>
-  <%= @qform.technologies %>
-</p>
-
-<p>
-  <b>Recording:</b>
-  <%= @qform.recording %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @qform.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_qform_path(@qform) %> |
-<%= link_to 'Back', qforms_path %>
+<div class="action_buttons"> 
+    <%= link_to 'Send Email', edit_qform_path(@qform), :class=>"link_button"  %> 
+    <%= link_to 'Edit', edit_qform_path(@qform), :class=>"link_button"  %> 
+    <%= link_to 'Delete', @qform, :confirm => 'Are you sure?', :method => :delete, :class=>"link_button" %>
+</div>

@@ -1,25 +1,24 @@
-<h1>Demo Qualification Form</h1>
+<div id="main_area">
+    
+    <h1>Demo Request System</h1>
 
-<table>
-  <tr>
-    <th>Customer</th>
-    <th>Purpose</th>
-    <th>Date Created</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <table id="index_table">
+        <tr>
+            <th>Customer</th>
+            <th>Purpose</th>
+            <th>Date</th>
+        </tr>
 
-<% @qforms.each do |qform| %>
-  <tr>
-    <td><%= link_to qform.customer, qform %></td>
-    <td><%= qform.purpose %></td>
-    <td><%= qform.created_at %></td>
-    <td><%= link_to 'Destroy', qform, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+        <% @qforms.each do |qform| %>
+        <tr>
+            <td><%= link_to qform.customer, qform %></td>
+            <td><%= qform.purpose %></td>
+            <td><%= qform.created_at %></td>
+        </tr>
+        <% end %>
+    </table>
 
-<br />
+    <br />
 
-<%= link_to 'New Form', new_qform_path %>
+    <%= link_to 'New Request', new_qform_path, :class=>"link_button"  %>
+</div>
