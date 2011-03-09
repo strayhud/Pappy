@@ -1,15 +1,14 @@
 Pappy::Application.routes.draw do
   
-  resources :technologies
-
-  resources :audiences
-
-  resources :opportunities
-
-  resources :platforms
-
   root :to => "qforms#index"
     
+  match 'qform/send_mail/:id' => 'qforms#send_mail', :as => :send_mail
+  match 'qforms/deliver_mail' => 'qforms#deliver_mail', :as => :deliver_mail
+
+  resources :technologies
+  resources :audiences
+  resources :opportunities
+  resources :platforms
   resources :qforms
 
   # The priority is based upon order of creation:

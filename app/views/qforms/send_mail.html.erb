@@ -1,0 +1,26 @@
+<h1>Send Email</h1>
+<%= form_for(@qform, :url => deliver_mail_path(@post)) do |f| %>
+    <input type="hidden" name="id" value=<%= @qform.id %> />
+
+    <div class="field">
+        <label>To:</label>
+        <div>
+            <input class="text_input_field" name="to_field" size="30" type="text" />
+        </div>
+    </div>
+
+    <div class="field">
+        <label>Subject:</label>
+        <div>
+            <input class="text_input_field" name="subject_field" size="30" type="text" />
+        </div>
+    </div>
+    
+    <div class="actions">
+        <%= f.submit "Send" %>
+    </div>
+
+<% end %>
+<%= link_to 'Cancel', qforms_path, :class=>"link_button"  %>
+
+

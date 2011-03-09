@@ -35,7 +35,7 @@
 <%= link_to 'Ok', qforms_path, :class=>"link_button"  %>
 
 <div class="action_buttons"> 
-    <%= link_to 'Send Email', edit_qform_path(@qform), :class=>"link_button"  %> 
+    <%= link_to 'Send Email', send_mail_url(:id => @qform.id), :class=>"link_button"  %> 
     <%= link_to 'Edit', edit_qform_path(@qform), :class=>"link_button"  %> 
     <%= link_to 'Delete', @qform, :confirm => 'Are you sure?', :method => :delete, :class=>"link_button" %>
 </div>

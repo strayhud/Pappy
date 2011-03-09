@@ -21,6 +21,29 @@ class QformsController < ApplicationController
     end
   end
 
+  def send_mail
+    @qform = Qform.find(params[:id])
+
+    respond_to do |format|
+      format.html # send_email.html.erb
+      format.xml  { render :xml => @qform }
+    end
+  end
+
+  def deliver_mail
+    @qform = Qform.find(params[:id])
+    
+    @to = params[:to_field]
+    @subject = params[:subject_field]
+    
+    UserMailer.send_form(@qform,@to,@subject).deliver
+    
+    respond_to do |format|
+      format.html { redirect_to(@qform, :notice => 'Form successfully emailed.') }
+      format.xml  { render :xml => @qform }
+    end
+  end
+
   # GET /qforms/new
   # GET /qforms/new.xml
   def new

@@ -8,6 +8,8 @@ gem 'mysql'
 
 gem 'sqlite3'
 
+gem 'mail'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
