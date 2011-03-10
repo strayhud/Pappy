@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @field.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @field.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_path(@field), :class=>"link_button" %>
+<%= link_to 'Back', fields_path, :class=>"link_button" %>

@@ -1,3 +1,5 @@
+<h1>Opportunity Details</h1>
+<div id="qform">
 <%= form_for(@qform) do |f| %>
   <% if @qform.errors.any? %>
     <div id="error_explanation">
@@ -12,64 +14,81 @@
   <% end %>
 
       <div class="field">
-          <%= f.label "Customer Name:" %>
+          <label>ACCOUNT NAME:</label>
           <div>
               <%= f.text_field :customer, :class=>"text_input_field" %>
           </div>
       </div>
       <div class="field">
-          <%= f.label "Meeting Purpose:" %>
+          <label>OPPORTUNITY:</label>
           <div>
           <%= f.text_field :purpose, :class=>"text_input_field" %>
           </div>
       </div>
       <div class="field">
-          <%= f.label "Record?" %>
-          <%= check_box_tag 'record', 'yes', (@qform.recording!=nil) %>
-      </div>
-
-      <div class="field">
-          <div class="form_row">
-              <label for="platform_names[]">Platform(s):</label>
-              <% for attr in Platform.find(:all) do %>
-              <%= check_box_tag 'platform_names[]', attr.name, name_in_array?(attr.name,@qform.platform) %>
-              <%= attr.name %>
-              <% end %>
-          </div>
-      </div>
-      <div class="field">
-          <div class="form_row">
-              <label for="audience_names[]">Audience:</label>
-              <% for attr in Audience.find(:all) do %>
-              <%= check_box_tag 'audience_names[]', attr.name, name_in_array?(attr.name,@qform.audience) %>
-              <%= attr.name %>
-              <% end %>
-          </div>
-      </div>
-      <div class="field">
-          <div class="form_row">
-              <label for="opportunity_names[]">Opportunity Size: </label>
-              <% for attr in Opportunity.find(:all) do %>
-              <%= check_box_tag 'opportunity_names[]', attr.name, name_in_array?(attr.name,@qform.opportunity) %>
-              <%= attr.name %>
-              <% end %>
-          </div>
-      </div>
-      <div class="field">
-          <div class="form_row">
-              <label for="technology_names[]">Technologies: </label>
-              <% for attr in Technology.find(:all) do %>
-              <%= check_box_tag 'technology_names[]', attr.name, name_in_array?(attr.name,@qform.technologies) %>
-              <%= attr.name %>
-              <% end %>
-          </div>
-      </div>
-      <div class="field">
-          <%= f.label :description %><br />
+          <label>DESCRIPTION:</label>
           <%= f.text_area :description %>
       </div>
-      <div class="actions">
-          <%= f.submit "Save" %>
+      <div class="field">
+          <div class="form_row">
+              <label for="platform_names[]">PLATFORM(S):</label>
+              <% for attr in Field.where(:name=>'platform') do %>
+              <%= check_box_tag 'platform_names[]', attr.value, name_in_array?(attr.value,@qform.platform) %>
+              <%= attr.value %>
+              <% end %>
+          </div>
       </div>
+      <div class="field">
+          <div class="form_row">
+              <label for="audience_names[]">ENVIRONMENTS:</label>
+              <% for attr in Field.where(:name=>'environment') do %>
+              <%= check_box_tag 'audience_names[]', attr.value, name_in_array?(attr.value,@qform.audience) %>
+              <%= attr.value %>
+              <% end %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="form_row">
+              <label for="opportunity_names[]">HOST COUNT: </label>
+              <% for attr in Field.where(:name=>'hosts') do %>
+              <%= check_box_tag 'opportunity_names[]', attr.value, name_in_array?(attr.value,@qform.opportunity) %>
+              <%= attr.value %>
+              <% end %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="form_row">
+              <label for="technology_names[]">TECHNOLOGIES: </label>
+              (JAVA)<% for attr in Field.where(:name=>'java') do %>
+              <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
+              <%= attr.value %>
+              <% end %>
+              <br/><br/>
+              <label> </label>
+              (PHP)<% for attr in Field.where(:name=>'PHP') do %>
+              <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
+              <%= attr.value %>
+              <% end %>
+              <br/><br/>
+              <label> </label>
+              (RAILS)<% for attr in Field.where(:name=>'Rails') do %>
+              <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
+              <%= attr.value %>
+              <% end %>
+              <br/><br/>
+              <label> </label>
+              (.NET)<% for attr in Field.where(:name=>'.NET') do %>
+              <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
+              <%= attr.value %>
+              <% end %>
+              <br/><br/>
+              <label> </label>
+              Others: <input class="text_input_field" name="to_field" size="20" type="text" />
+          </div>
+          
+      </div>
+      <br/><br/>
+          <%= f.submit "Save", :class=>"input_button" %>
+      <%= link_to 'Cancel', qforms_path, :class=>"link_button"  %>
 <% end %>
-
+</div>

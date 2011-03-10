@@ -34,7 +34,7 @@ class QformsController < ApplicationController
     @qform = Qform.find(params[:id])
     
     @to = params[:to_field]
-    @subject = params[:subject_field]
+    @subject = "["+@qform.customer+"] "+params[:subject_field]
     
     UserMailer.send_form(@qform,@to,@subject).deliver
     

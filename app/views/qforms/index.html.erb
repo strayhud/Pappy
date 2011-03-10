@@ -1,19 +1,19 @@
 <div id="main_area">
     
-    <h1>Demo Request System</h1>
+    <h1>Opportunity Tracker</h1>
 
     <table id="index_table">
         <tr>
-            <th>Customer</th>
-            <th>Purpose</th>
-            <th>Date</th>
+            <th>ACCOUNT</th>
+            <th>OPPORTUNITY</th>
+            <th>DATE</th>
         </tr>
 
         <% @qforms.each do |qform| %>
         <tr>
             <td><%= link_to qform.customer, qform %></td>
-            <td><%= qform.purpose %></td>
-            <td><%= qform.created_at %></td>
+            <td><%= link_to qform.purpose, qform %></td>
+            <td><%= link_to qform.created_at, qform %></td>
         </tr>
         <% end %>
     </table>
