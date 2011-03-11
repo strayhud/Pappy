@@ -1,14 +1,17 @@
 Pappy::Application.routes.draw do
   
-  root :to => "qforms#index"
-    
+  get "demosystem/menu"
+
+  devise_for :users
+
   match 'qform/send_mail/:id' => 'qforms#send_mail', :as => :send_mail
   match 'qforms/deliver_mail' => 'qforms#deliver_mail', :as => :deliver_mail
 
   resources :qforms
   resources :fields
 
-
+  root :to => "demosystem#menu"
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
