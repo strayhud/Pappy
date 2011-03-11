@@ -11,8 +11,8 @@
 
         <% @qforms.each do |qform| %>
         <tr>
-            <td><%= link_to qform.customer, qform %></td>
-            <td><%= link_to qform.purpose, qform %></td>
+            <td><%= link_to qform.account, qform %></td>
+            <td><%= link_to qform.opportunity, qform %></td>
             <td><%= link_to qform.created_at, qform %></td>
         </tr>
         <% end %>

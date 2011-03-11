@@ -34,7 +34,7 @@ class QformsController < ApplicationController
     @qform = Qform.find(params[:id])
     
     @to = params[:to_field]
-    @subject = "["+@qform.customer+"] "+params[:subject_field]
+    @subject = "["+@qform.account+"] "+params[:subject_field]
     
     UserMailer.send_form(@qform,@to,@subject).deliver
     
@@ -111,10 +111,9 @@ class QformsController < ApplicationController
   private
   
   def clear_and_update(q,params)
-    q.recording = params[:record]
-    q.platform = array_to_string(params[:platform_names])
-    q.opportunity = array_to_string(params[:opportunity_names])
-    q.audience = array_to_string(params[:audience_names])
+    q.platforms = array_to_string(params[:platform_names])
+    q.hosts = array_to_string(params[:host_names])
+    q.environments = array_to_string(params[:environment_names])
     q.technologies = array_to_string(params[:technology_names])
   end
   

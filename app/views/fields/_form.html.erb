@@ -19,7 +19,8 @@
     <%= f.label :value %>
     <%= f.text_field :value, :class=>"text_input_field" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create", :class=>"input_button" %>
-  </div>
+
+  <%= f.submit "Submit", :class=>"input_button" %>
+  <%= link_to 'Back', fields_path, :class=>"link_button" %>
+  
 <% end %>

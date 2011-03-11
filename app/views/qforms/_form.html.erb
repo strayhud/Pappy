@@ -16,13 +16,13 @@
       <div class="field">
           <label>ACCOUNT NAME:</label>
           <div>
-              <%= f.text_field :customer, :class=>"text_input_field" %>
+              <%= f.text_field :account, :class=>"text_input_field" %>
           </div>
       </div>
       <div class="field">
           <label>OPPORTUNITY:</label>
           <div>
-          <%= f.text_field :purpose, :class=>"text_input_field" %>
+          <%= f.text_field :opportunity, :class=>"text_input_field" %>
           </div>
       </div>
       <div class="field">
@@ -33,25 +33,25 @@
           <div class="form_row">
               <label for="platform_names[]">PLATFORM(S):</label>
               <% for attr in Field.where(:name=>'platform') do %>
-              <%= check_box_tag 'platform_names[]', attr.value, name_in_array?(attr.value,@qform.platform) %>
+              <%= check_box_tag 'platform_names[]', attr.value, name_in_array?(attr.value,@qform.platforms) %>
               <%= attr.value %>
               <% end %>
           </div>
       </div>
       <div class="field">
           <div class="form_row">
-              <label for="audience_names[]">ENVIRONMENTS:</label>
+              <label for="environment_names[]">ENVIRONMENTS:</label>
               <% for attr in Field.where(:name=>'environment') do %>
-              <%= check_box_tag 'audience_names[]', attr.value, name_in_array?(attr.value,@qform.audience) %>
+              <%= check_box_tag 'environment_names[]', attr.value, name_in_array?(attr.value,@qform.environments) %>
               <%= attr.value %>
               <% end %>
           </div>
       </div>
       <div class="field">
           <div class="form_row">
-              <label for="opportunity_names[]">HOST COUNT: </label>
-              <% for attr in Field.where(:name=>'hosts') do %>
-              <%= check_box_tag 'opportunity_names[]', attr.value, name_in_array?(attr.value,@qform.opportunity) %>
+              <label for="host_names[]">HOST COUNT: </label>
+              <% for attr in Field.where(:name=>'host') do %>
+              <%= check_box_tag 'host_names[]', attr.value, name_in_array?(attr.value,@qform.hosts) %>
               <%= attr.value %>
               <% end %>
           </div>
@@ -83,7 +83,7 @@
               <% end %>
               <br/><br/>
               <label> </label>
-              Others: <input class="text_input_field" name="to_field" size="20" type="text" />
+              Others: <%= f.text_field :othertechnology, :class=>"text_input_field" %>
           </div>
           
       </div>
