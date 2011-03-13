@@ -1,0 +1,15 @@
+<p>
+  <b>Name:</b>
+  <%= @presentation.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @presentation.description %>
+</p>
+
+
+<%= link_to 'Back', presentations_path, :class=>"link_button" %>
+<%= link_to 'Edit', edit_presentation_path(@presentation), :class=>"link_button" %>
+<%= link_to 'Upload Slides', upload_path(:id=>@presentation.id), :class=>"link_button "%>
+<%= link_to 'Delete', @presentation, :class=>"link_button", :confirm => 'Are you sure?', :method => :delete %>

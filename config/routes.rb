@@ -1,14 +1,18 @@
 Pappy::Application.routes.draw do
   
+  resources :slides
+
   get "demosystem/menu"
 
   devise_for :users
 
   match 'qform/send_mail/:id' => 'qforms#send_mail', :as => :send_mail
   match 'qforms/deliver_mail' => 'qforms#deliver_mail', :as => :deliver_mail
+  match 'presentation/upload/:id' => 'presentations#upload', :as => :upload
 
   resources :qforms
   resources :fields
+  resources :presentations
 
   root :to => "demosystem#menu"
     

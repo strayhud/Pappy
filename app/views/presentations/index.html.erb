@@ -1,0 +1,22 @@
+<h1>Listing presentations</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @presentations.each do |presentation| %>
+  <tr>
+    <td><%= link_to presentation.name, presentation %></td>
+    <td><%= link_to presentation.description, presentation %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Presentation', new_presentation_path, :class=>"link_button"  %>
