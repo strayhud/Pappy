@@ -2,34 +2,16 @@ class SlidesController < ApplicationController
   # GET /slides
   # GET /slides.xml
   def index
-    @slides = Slide.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @slides }
-    end
   end
 
   # GET /slides/1
   # GET /slides/1.xml
   def show
-    @slide = Slide.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @slide }
-    end
   end
 
   # GET /slides/new
   # GET /slides/new.xml
   def new
-    @slide = Slide.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @slide }
-    end
   end
 
   # GET /slides/1/edit
@@ -40,32 +22,28 @@ class SlidesController < ApplicationController
   # POST /slides
   # POST /slides.xml
   def create
-    @slide = Slide.new(params[:slide])
-
-    respond_to do |format|
-      if @slide.save
-        format.html { redirect_to(@slide, :notice => 'Slide was successfully created.') }
-        format.xml  { render :xml => @slide, :status => :created, :location => @slide }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @slide.errors, :status => :unprocessable_entity }
+    newparams = coerce(params) 
+    @slide = Slide.new(newparams[:slide])
+    if @slide.save
+      flash[:notice] = "Successfully created slide."
+      respond_to do |format| 
+        format.html {redirect_to @slide.presentation} 
+        format.json { render :json => { :result => 'success', :slide => slide_url(@slide) } }
       end
+    else
+      render :action => 'new'
     end
-  end
+ end
 
   # PUT /slides/1
   # PUT /slides/1.xml
   def update
     @slide = Slide.find(params[:id])
-
-    respond_to do |format|
-      if @slide.update_attributes(params[:slide])
-        format.html { redirect_to(@slide, :notice => 'Slide was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @slide.errors, :status => :unprocessable_entity }
-      end
+    if @slide.update_attributes(params[:slide])
+      flash[:notice] = "Successfully updated slide."
+      redirect_to @slide
+    else
+      render :action => 'edit'
     end
   end
 
@@ -73,11 +51,29 @@ class SlidesController < ApplicationController
   # DELETE /slides/1.xml
   def destroy
     @slide = Slide.find(params[:id])
+    @presentation = @slide.presentation
     @slide.destroy
 
     respond_to do |format|
-      format.html { redirect_to(slides_url) }
+      format.html { redirect_to(@presentation, :notice => 'Presentation was successfully created.') }
       format.xml  { head :ok }
     end
   end
+  
+private
+  def coerce(params)
+    if params[:slide].nil? 
+      h = Hash.new 
+      h[:slide] = Hash.new 
+      h[:slide][:presentation_id] = params[:presentation_id] 
+      h[:slide][:image_id] = params[:image_id] 
+      h[:slide][:image] = params[:Filedata] 
+      h[:slide][:image].content_type = MIME::Types.type_for(h[:slide][:image].original_filename).to_s
+      h
+    else 
+      params
+    end 
+  end
+
+
 end

@@ -19,10 +19,19 @@ class PresentationsController < ApplicationController
     end
   end
 
+  def play
+    @presentation = Presentation.find(params[:id])
+
+    respond_to do |format|
+      format.html # upload.html.erb
+      format.xml  { render :xml => @presentation }
+    end
+  end
+
   # GET /presentations/1
   # GET /presentations/1.xml
   def show
-    @presentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id], :include => :slides)
 
     respond_to do |format|
       format.html # show.html.erb

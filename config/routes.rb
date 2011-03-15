@@ -9,6 +9,7 @@ Pappy::Application.routes.draw do
   match 'qform/send_mail/:id' => 'qforms#send_mail', :as => :send_mail
   match 'qforms/deliver_mail' => 'qforms#deliver_mail', :as => :deliver_mail
   match 'presentation/upload/:id' => 'presentations#upload', :as => :upload
+  match 'presentation/play/:id' => 'presentations#play', :as => :play
 
   resources :qforms
   resources :fields

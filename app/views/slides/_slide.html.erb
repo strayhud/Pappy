@@ -1,0 +1,13 @@
+<li>
+	<a class="thumb" name="leaf" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
+	    <div class="thumb-container">
+           <%= image_tag URI.encode(slide.image.url(:small)), :alt => slide.image_file_name %>
+        </div>
+	</a>
+	<div class="caption">
+		<div class="image-title"><%= slide.image_file_name %></div>
+    	<% if edit_mode %>
+		    <%= link_to 'Delete', slide, :confirm => 'Are you sure?', :method => :delete %>
+    	<% end %>
+	</div>
+</li>

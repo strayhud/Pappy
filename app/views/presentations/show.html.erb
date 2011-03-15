@@ -1,15 +1,21 @@
-<p>
-  <b>Name:</b>
-  <%= @presentation.name %>
-</p>
+<h1>  <%= @presentation.name %> </h1>
 
 <p>
   <b>Description:</b>
   <%= @presentation.description %>
 </p>
+<br/>
 
+<div id="thumbs" class="navigation">
+	<ul id="thumb_list" class="thumbs noscript">
+        <%= render :partial => @presentation.slides, :locals => {:edit_mode => false} %>
+	</ul>
+	<div style="clear:both;"></div>
+</div>
+<br/><br/>
 
 <%= link_to 'Back', presentations_path, :class=>"link_button" %>
 <%= link_to 'Edit', edit_presentation_path(@presentation), :class=>"link_button" %>
 <%= link_to 'Upload Slides', upload_path(:id=>@presentation.id), :class=>"link_button "%>
+<%= link_to 'Play', play_path(:id=>@presentation.id), :class=>"link_button "%>
 <%= link_to 'Delete', @presentation, :class=>"link_button", :confirm => 'Are you sure?', :method => :delete %>

@@ -19,6 +19,15 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+  
+  <div id="thumbs" class="navigation">
+  	<ul id="thumb_list" class="thumbs noscript">
+          <%= render :partial => @presentation.slides, :locals => {:edit_mode => true} %>
+  	</ul>
+  	<div style="clear:both;"></div>
+  </div>
+  <br/><br/>
+  
   <%= f.submit "Submit", :class=>"input_button" %>
   <%= link_to 'Back', presentations_path, :class=>"link_button" %>
 <% end %>
