@@ -1,4 +1,6 @@
 class PresentationsController < ApplicationController
+  layout :resolve_layout
+  
   # GET /presentations
   # GET /presentations.xml
   def index
@@ -98,4 +100,16 @@ class PresentationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+
+    def resolve_layout
+      case action_name
+      when "play"
+        "slideshow"
+      else
+        "application"
+      end
+    end
+  
 end

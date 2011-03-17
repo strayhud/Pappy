@@ -1,13 +1,10 @@
-
 <li>
-    <a class="thumb" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
-        <div class="thumb-container", id="slide">
+	<a class="thumb" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
+	    <div class="thumb-container">
            <%= image_tag URI.encode(slide.image.url(:thumb)), :alt => slide.image_file_name %>
         </div>
-    </a>
-    <div class="caption">
-    	<div class="image-title"><%= slide.image_file_name %></div>
-    </div>
+	</a>
+	<div class="caption">
+		<div class="image-title"><%= slide.image_file_name %></div>
+	</div>
 </li>
-
-

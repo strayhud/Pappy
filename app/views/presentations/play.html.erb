@@ -2,8 +2,10 @@
 <%= javascript_include_tag 'galleriffic/jquery.opacityrollover.js' %>
 
 <script type="text/javascript">
-    var gallery;
 	jQuery(document).ready(function($) {
+		// We only want these styles applied when javascript is enabled
+		$('div.navigation').css({'width' : '300px', 'float' : 'left'});
+		$('div.content').css('display', 'block');
 
 		// Initially set opacity on thumbs and add
 		// additional styling for hover effect on thumbs
@@ -14,30 +16,13 @@
 			fadeSpeed:         'fast',
 			exemptionSelector: '.selected'
 		});
-
-		// Enable toggling of the caption
-		var captionOpacity = 0.0;
-		$('#captionToggle a').click(function(e) {
-			var link = $(this);
-			
-			var isOff = link.hasClass('off');
-			var removeClass = isOff ? 'off' : 'on';
-			var addClass = isOff ? 'on' : 'off';
-			var linkText = isOff ? 'Hide Caption' : 'Show Caption';
-			captionOpacity = isOff ? 0.7 : 0.0;
-
-			link.removeClass(removeClass).addClass(addClass).text(linkText).attr('title', linkText);
-			$('#caption span.image-caption').fadeTo(1000, captionOpacity);
-			
-			e.preventDefault();
-		});
 		
 		// Initialize Advanced Galleriffic Gallery
-		gallery = $('#thumbs').galleriffic({
+		var gallery = $('#thumbs').galleriffic({
 			delay:                     2500,
-			numThumbs:                 25,
+			numThumbs:                 15,
 			preloadAhead:              10,
-			enableTopPager:            true,
+			enableTopPager:            false,
 			enableBottomPager:         true,
 			maxPagesToShow:            7,
 			imageContainerSel:         '#slideshow',
@@ -52,7 +37,7 @@
 			nextLinkText:              'Next Photo &rsaquo;',
 			nextPageLinkText:          'Next &rsaquo;',
 			prevPageLinkText:          '&lsaquo; Prev',
-			enableHistory:             true,
+			enableHistory:             false,
 			autoStart:                 false,
 			syncTransitions:           true,
 			defaultTransitionDuration: 900,
@@ -62,61 +47,51 @@
 					.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
 					.eq(nextIndex).fadeTo('fast', 1.0);
 			},
-			onTransitionOut:           function(slide, caption, isSync, callback) {
-				slide.fadeTo(this.getDefaultTransitionDuration(isSync), 0.0, callback);
-				caption.fadeTo(this.getDefaultTransitionDuration(isSync), 0.0);
-			},
-			onTransitionIn:            function(slide, caption, isSync) {
-				var duration = this.getDefaultTransitionDuration(isSync);
-				slide.fadeTo(duration, 1.0);
-				
-				// Position the caption at the bottom of the image and set its opacity
-				var slideImage = slide.find('img');
-				caption.width(slideImage.width()-1)
-					.css({
-						'bottom' : Math.floor((slide.height() - slideImage.outerHeight())+1),
-						'left' : Math.floor((slide.width() - slideImage.width()) / 2+1) + slideImage.outerWidth() - slideImage.width()
-					})
-					.fadeTo(duration, captionOpacity);
-			},
 			onPageTransitionOut:       function(callback) {
 				this.fadeTo('fast', 0.0, callback);
 			},
 			onPageTransitionIn:        function() {
 				this.fadeTo('fast', 1.0);
-			},
-			onImageAdded:              function(imageData, $li) {
-				$li.opacityrollover({
-					mouseOutOpacity:   onMouseOutOpacity,
-					mouseOverOpacity:  1.0,
-					fadeSpeed:         'fast',
-					exemptionSelector: '.selected'
-				});
 			}
 		});
 	});
-	
 </script>
 
 <div id="page">
 	<div id="container">
-		<div id="gallery">
-			<div id="controls" class="controls"></div>
+	    <h1><%= @presentation.title %></h1>
+        <br/>
+		<!-- Start Advanced Gallery Html Containers -->
+		<div id="gallery" class="content">
 			<div class="slideshow-container">
 				<div id="loading" class="loader"></div>
 				<div id="slideshow" class="slideshow"></div>
-    			<div id="caption" class="caption-container"></div>
 			</div>
+			<div id="controls" class="controls"></div>
+		</div>
+		<div id="thumbs" class="navigation">
+			<ul class="thumbs noscript">
+                <% for slide in @presentation.slides %>
+                    <li>
+                        <!--
+                    	<a class="thumb" name="leaf"
+                    	    href=<%= URI.encode(slide.image.url(:medium)) %> 
+                    	    title="<%= slide.image_file_name %>">
+                            <%= image_tag URI.encode(slide.image.url(:thumb)), 
+                                :alt => slide.image_file_name %>
+                    	</a>
+                    	-->
+                    	<div style="width:280; display: block; background:red; ">
+                    	<a class="thumb" name="leaf" style="width:280; display: block;"
+                    	    href=<%= URI.encode(slide.image.url(:medium)) %> 
+                    	    title="<%= slide.name %>">
+                            <%= slide.name %>
+                    	</a>
+                    	</div>
+                    </li>
+                <% end %>
+			</ul>
 		</div>
 		<div style="clear: both;"></div>
-		<div id="thumbs" class="navigation">
-			<ul id="thumb_list" class="thumbs noscript">
-                <% for slide in @presentation.slides %>
-                   <%= render :partial => '/slides/play', :locals => {:slide => slide} %>
-                <% end %>
- 			</ul>
-			<div style="clear:both;"></div>
-		</div>
 	</div>
 </div>
-

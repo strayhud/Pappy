@@ -46,14 +46,32 @@ th { color: #247588; margin: 10px 20px 0 0; }
 #show_col1 { width: 200px; }
 #show_col2 { width: 400px; }
 
+#slide_imageQueue { margin: 20px; }
+
 label {
 	float: left; clear: left; margin: 1px 20px 0 0; width: 200px;
 	text-align: right; font-size: 16px; color: #445668;
 	text-shadow: 0px 1px 0px #f2f2f2;
 }
 
+.number_input_field {
+	width: 50px;
+}
+.number_input_field {
+	height: 25px; padding: 4px 10px 0px 10px; margin: 0px 0 10px 0;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+	font-family: sans-serif; font-size: 16px; color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+}
+
 .text_input_field {
-	width: 400px; height: 25px; padding: 4px 10px 0px 10px; margin: 0px 0 10px 0;
+	width: 400px; 
+}
+.text_input_field {
+	height: 25px; padding: 4px 10px 0px 10px; margin: 0px 0 10px 0;
 	background: #1A6377;
 	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
@@ -156,148 +174,31 @@ nav ul li a:hover {
 }
 
 /* Settings for Slide showing/editing */
-ul.thumbs {
+ul.slides {
 	clear: both;
 	margin: 0;
 	padding: 0;
 }
-ul.thumbs li {
+ul.slides li {
 	float: left;
 	padding: 0;
 	margin: 5px 5px 0px 0;
 	list-style: none;
 }
-a.thumb {
+a.slide {
 	display: block;
 	text-align: center;
     line-height:100px;
 }
-ul.thumbs li.selected img{
+ul.slides li.selected img{
 	border: 1px solid #fff;
 }
-a.thumb:focus {
+a.slide:focus {
 	outline: none;
 }
-ul.thumbs img {
+ul.slides img {
 	padding: 2px;
 	border: 1px solid #ccc;
 	display: inline;
-	vertical-align: middle;
-}
-span.image-caption {
-	display: block;
-	position: absolute;
-}
-
-/****** Player Settings ********/
-div#container {
-	padding: 20px;
-	min-width: 1200px;
-	position:relative;
-}
-
-div#gallery {
-	float: right;
-	width: 820px; 
-   	position:absolute;
-	right:0px;
-	top:0px;
-}
-div#gallery a, div.navigation a {
-	text-decoration: none;
-	color: #777;
-}
-div#gallery a:focus, div#gallery a:hover, div#gallery a:active {
-	text-decoration: underline;
-}
-div.controls {
-	margin-top: 5px;
-	height: 23px;
-}
-div.controls a {
-	padding: 5px;
-}
-div.ss-controls {
-	float: left;
-}
-div.nav-controls {
-	float: right;
-}
-div.slideshow-container {
-	position: relative;
-	clear: both;
-	height: 800px; /* This should be set to be at least the height of the largest image in the slideshow */
-}
-div.loader {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: url('loader.gif');
-	background-repeat: no-repeat;
-	background-position: center;
-	width: 820px;
-	height: 800px; /* This should be set to be at least the height of the largest image in the slideshow */
-}
-div.slideshow {
-
-}
-div.slideshow span.image-wrapper {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-div.slideshow a.advance-link {
-	display: block;
-	width: 820px;
-	height: 800px; /* This should be set to be at least the height of the largest image in the slideshow */
-	line-height: 800px; /* This should be set to be at least the height of the largest image in the slideshow */
-	text-align: center;
-}
-div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
-	text-decoration: none;
-}
-div.slideshow img {
 	vertical-align: top;
-	border: 1px solid #ccc;
-}
-
-div.navigation {
-	/* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled. */
-	margin-right: 800px;
-	width: auto;
-	float: left;
-	
-}
-div.navigation div.top {
-	margin-bottom: 12px;
-	height: 11px;
-}
-div.navigation div.bottom {
-	margin-top: 12px;
-}
-
-div.pagination {
-	clear: both;
-}
-div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
-	display: block;
-	float: left;
-	margin-right: 2px;
-	padding: 4px 7px 2px 7px;
-	border: 1px solid #ccc;
-}
-div.pagination a:hover {
-	background-color: #eee;
-	text-decoration: none;
-}
-div.pagination span.current {
-	font-weight: bold;
-	background-color: #000;
-	border-color: #000;
-	color: #fff;
-}
-div.pagination span.ellipsis {
-	border: none;
-	padding: 5px 0 3px 2px;
 }

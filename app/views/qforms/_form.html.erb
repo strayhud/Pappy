@@ -59,7 +59,7 @@
       <div class="field">
           <div class="form_row">
               <label for="technology_names[]">TECHNOLOGIES: </label>
-              (JAVA)<% for attr in Field.where(:name=>'java') do %>
+              (JAVA)<% for attr in Field.where(:name=>'Java') do %>
               <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
               <%= attr.value %>
               <% end %>

@@ -1,6 +1,6 @@
 <li>
-	<a class="thumb" name="leaf" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
-	    <div class="thumb-container">
+	<a class="slide" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
+	    <div class="slide-container">
            <%= image_tag URI.encode(slide.image.url(:small)), :alt => slide.image_file_name %>
         </div>
 	</a>

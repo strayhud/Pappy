@@ -1,0 +1,10 @@
+<li>
+	<a class="slide" href="<%= edit_slide_path(slide) %>" title="<%= slide.name %>">
+	    <div class="slide-container">
+           <%= image_tag URI.encode(slide.image.url(:small)), :alt => slide.image_file_name %>
+        </div>
+	</a>
+	<div class="caption">
+		<span class="editable_text"><%= slide.name %></span>
+	</div>
+</li>

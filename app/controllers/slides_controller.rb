@@ -24,6 +24,8 @@ class SlidesController < ApplicationController
   def create
     newparams = coerce(params) 
     @slide = Slide.new(newparams[:slide])
+    @slide.name = @slide.image_file_name
+    @slide.number = @slide.presentation.slides.count
     if @slide.save
       flash[:notice] = "Successfully created slide."
       respond_to do |format| 
@@ -39,9 +41,11 @@ class SlidesController < ApplicationController
   # PUT /slides/1.xml
   def update
     @slide = Slide.find(params[:id])
+    @slide.name = params[:slide][:name]
+    @slide.number = params[:slide][:number]
     if @slide.update_attributes(params[:slide])
       flash[:notice] = "Successfully updated slide."
-      redirect_to @slide
+      redirect_to edit_presentation_path(@slide.presentation)
     else
       render :action => 'edit'
     end

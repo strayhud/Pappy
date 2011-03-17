@@ -1,6 +1,32 @@
-<h1>Editing slide</h1>
+<%= form_for(@slide) do |f| %>
+  <% if @slide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @slide.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @slide %> |
-<%= link_to 'Back', slides_path %>
+  <div class="slide-container" style="margin-left: 150px;">
+     <%= image_tag URI.encode(@slide.image.url(:small)), :alt => @slide.image_file_name %>
+  </div>
+  <br/>
+  <div style="margin-left: -100px;">
+      <div class="field" >
+        <%= f.label :name %>
+        <%= f.text_field :name, :class=>"text_input_field" %>
+      </div>
+      <div class="field">
+        <%= f.label "Index:" %>
+        <%= f.text_field :number, :class=>"number_input_field", :style=>"width: 40px;" %>
+      </div>
+  </div>
+  <%= link_to 'Back', edit_presentation_path(@slide.presentation), :class=>"link_button" %>
+  <%= f.submit "Update", :class=>"input_button" %>
+  	<%= link_to "Delete", @slide, :confirm => 'Are you sure?', :method => :delete, :class=>"link_button" %>
+
+<% end %>

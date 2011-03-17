@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Title</th>
     <th>Description</th>
     <th></th>
     <th></th>
@@ -12,6 +13,7 @@
 <% @presentations.each do |presentation| %>
   <tr>
     <td><%= link_to presentation.name, presentation %></td>
+    <td><%= link_to presentation.title, presentation %></td>
     <td><%= link_to presentation.description, presentation %></td>
   </tr>
 <% end %>

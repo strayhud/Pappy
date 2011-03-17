@@ -1,0 +1,136 @@
+
+/****** Player Settings ********/
+ul.thumbs {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+ul.thumbs li {
+	float: left;
+	padding: 0;
+	margin: 5px 5px 0px 0;
+	list-style: none;
+}
+a.thumb {
+	display: block;
+	text-align: center;
+    line-height:100px;
+}
+ul.thumbs li.selected img{
+	border: 1px solid #fff;
+}
+a.thumb:focus {
+	outline: none;
+}
+ul.thumbs img {
+	padding: 2px;
+	border: 1px solid #ccc;
+	display: inline;
+	vertical-align: top;
+}
+span.image-caption {
+	display: block;
+}
+
+div#slide-viewer {
+	float: right;
+	width: 820px; 
+   	position:absolute;
+	right:0px;
+	top:0px;
+}
+div#slide-viewer a, div.navigation a {
+	text-decoration: none;
+	color: #777;
+}
+div#slide-viewer a:focus, div#slide-viewer a:hover, div#slide-viewer a:active {
+	text-decoration: underline;
+}
+div.controls {
+	margin-top: 5px;
+	height: 23px;
+}
+div.controls a {
+	padding: 5px;
+}
+div.ss-controls {
+	float: left;
+}
+div.nav-controls {
+	float: right;
+}
+div#slideshow-container {
+	position: relative;
+	clear: both;
+	height: 800px; 
+}
+div.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 820px;
+	height: 800px; 
+}
+
+div.slide span.image-wrapper {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div.slide a.advance-link {
+	display: block;
+	width: 820px;
+	height: 800px;
+	line-height: 800px;
+	text-align: center;
+}
+div.slide a.advance-link:hover, div.slide a.advance-link:active, div.slide a.advance-link:visited {
+	text-decoration: none;
+}
+div.slide img {
+	vertical-align: top;
+	border: 1px solid #ccc;
+}
+
+div.navigation {
+	margin-right: 800px;
+	width: auto;
+	float: left;
+	
+}
+div.navigation div.top {
+	margin-bottom: 12px;
+	height: 11px;
+}
+div.navigation div.bottom {
+	margin-top: 12px;
+}
+
+div.pagination {
+	clear: both;
+}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 4px 7px 2px 7px;
+	border: 1px solid #ccc;
+}
+div.pagination a:hover {
+	background-color: #eee;
+	text-decoration: none;
+}
+div.pagination span.current {
+	font-weight: bold;
+	background-color: #000;
+	border-color: #000;
+	color: #fff;
+}
+div.pagination span.ellipsis {
+	border: none;
+	padding: 5px 0 3px 2px;
+}

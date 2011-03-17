@@ -1,0 +1,10 @@
+<li>
+	<p class="slide" href="/" title="<%= slide.image_file_name %>">
+	    <div class="slide-container">
+           <%= image_tag URI.encode(slide.image.url(:small)), :alt => slide.image_file_name %>
+        </div>
+	</p>
+	<div class="caption">
+		<div class="image-title"><%= slide.name %></div>
+	</div>
+</li>
