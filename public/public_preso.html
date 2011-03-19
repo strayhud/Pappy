@@ -1,47 +1,63 @@
 <html>
 <head>
   <title>RPM Overview</title>
-  <link href="stylesheets/pappystyle.css" rel="stylesheet" type="text/css" media="screen" />  <link href="stylesheets/depot.css" rel="stylesheet" type="text/css" media="screen" />
-      <script type="text/javascript" language="javascript">
-  //      <![CDATA[
-              var images = new Array (18);
-              images[0] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.001-001.png";
-              images[1] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.002-001.png";
-              images[2] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.003-001.png";
-              images[3] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.004-001.png";
-              images[4] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.005-001.png";
-              images[5] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.006-001.png";
-              images[6] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-001.png";
-              images[7] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-002.png";
-              images[8] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-003.png";
-              images[9] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-004.png";
-              images[10] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-005.png";
-              images[11] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-006.png";
-              images[12] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-007.png";
-              images[13] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-008.png";
-              images[14] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.008-001.png";
-              images[15] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.008-002.png";
-              images[16] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.009-001.png";
-              images[17] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.010-001.png";
-              var index = 0;
-              function WindowLoaded(evt)
-              {
-                  document.body.onselectstart = function () { return false; };
+  <link href="stylesheets/pappystyle.css" rel="stylesheet" type="text/css" media="screen" />  
+
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+
+  
+  
+<script type="text/javascript" language="javascript">
+      
+      var images = new Array (18);
+      images[0] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.001-001.png";
+      images[1] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.002-001.png";
+      images[2] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.003-001.png";
+      images[3] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.004-001.png";
+      images[4] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.005-001.png";
+      images[5] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.006-001.png";
+      images[6] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-001.png";
+      images[7] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-002.png";
+      images[8] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-003.png";
+      images[9] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-004.png";
+      images[10] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-005.png";
+      images[11] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-006.png";
+      images[12] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-007.png";
+      images[13] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.007-008.png";
+      images[14] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.008-001.png";
+      images[15] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.008-002.png";
+      images[16] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.009-001.png";
+      images[17] = "CustomerFacing_RPMOverview_files/CustomerFacing_RPMOverview.010-001.png";
+      var index = 0;
+      function WindowLoaded(evt)
+      {
+          document.body.onselectstart = function () { return false; };
+      }
+      function Step(i)
+      {
+          GoTo(index + i)
+      }
+      function GoTo(newIndex)
+      {
+          if(newIndex >= 0 && newIndex < images.length)
+          {
+              index = newIndex;
+              document.Slideshow.src = images[index];
+          }
+      }
+
+   	  jQuery(document).ready(function($) {
+          $(document).keyup(function(e) {
+              var action = '';
+              if(e.keyCode === 37) {
+                  Step(-1);
+              } else if(e.keyCode === 39) {
+                  Step(1);
               }
-              function Step(i)
-              {
-                  GoTo(index + i)
-              }
-              function GoTo(newIndex)
-              {
-                  if(newIndex >= 0 && newIndex < images.length)
-                  {
-                      index = newIndex;
-                      document.Slideshow.src = images[index];
-                  }
-              }
-  //      ]]>
-      </script>
+          });
+      });      
+      
+</script>
   
 </head>
 

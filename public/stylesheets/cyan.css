@@ -1,0 +1,102 @@
+
+body {
+	background: #86D6D5; color: #247588;
+	background: -moz-linear-gradient(top, #247588 0%, #728EAA 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#247588), color-stop(100%,#728EAA)); /* webkit */
+}
+
+#content {
+	background: #c9d0de; border: 1px solid #e1e1e1;
+	-moz-box-shadow: 0px 0px 8px #444;
+	-webkit-box-shadow: 0px 0px 8px #444;
+	color: #247588; 
+}
+
+
+h1 { color: #247588;  text-shadow: 0px 1px 0px #f2f2f2; }
+h2 { color: #247588; }
+th { color: #247588; }
+td a { color: #247588; text-shadow: 0px 1px 0px #f2f2f2; }
+div#footer { color: #888; }
+
+label {	color: #445668; text-shadow: 0px 1px 0px #f2f2f2; }
+
+.number_input_field {
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+}
+.text_input_field {
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+}
+input::-webkit-input-placeholder  {
+   	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;
+}
+input:-moz-placeholder {
+    color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;
+}
+
+textarea {
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+	-moz-box-shadow: 0px 1px 0px #f2f2f2;-webkit-box-shadow: 0px 1px 0px #f2f2f2;
+}
+textarea::-webkit-input-placeholder  {
+   	color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;
+}
+textarea:-moz-placeholder {
+    color: #a1b2c3; text-shadow: 0px -1px 0px #38506b;
+}
+
+input:focus, textarea:focus, .text_input_field:focus {
+	background: #1E7993;
+	background: -moz-linear-gradient(top, #668099 0%, #1E7993 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#668099), color-stop(20%,#1E7993)); /* webkit */
+}
+
+.input_button {
+	-moz-box-shadow: 0px 0px 5px #999;-webkit-box-shadow: 0px 0px 5px #999;
+	border: 1px solid #556f8c; 
+	background: -moz-linear-gradient(top, #668099 0%, #1E7993 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#668099), color-stop(100%,#1E7993)); /* webkit */
+	color: #f2f2f2;  text-shadow: 0px -1px 0px #334f71;
+}
+
+.link_button {
+	-moz-box-shadow: 0px 0px 5px #999;-webkit-box-shadow: 0px 0px 5px #999;
+	border: 1px solid #556f8c;
+	background: -moz-linear-gradient(top, #668099 0%, #1E7993 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#668099), color-stop(100%,#1E7993)); /* webkit */
+	color: #f2f2f2;  text-shadow: 0px -1px 0px #334f71;
+}
+ul.slides li.selected img{ border: 1px solid #fff; }
+ul.slides img {	border: 1px solid #ccc; }
+
+
+/* Navigation Links (Home & Login) */
+nav ul li a {  color: #A0A7B6; }
+nav ul li a:visited { color: #09c; }
+
+/* Notices & Errors */
+#notice {  color: green; }
+.field_with_errors {  background-color: red; }
+#error_explanation {  border: 2px solid red;  background-color: #f0f0f0; }
+#error_explanation h2 {  background-color: #c00;  color: #fff; }
+
+
+/* Slide Show */
+div.navigation a.prev { background-image: url('images/prevPageArrowWhite.gif'); }
+div.navigation a.next { background-image: url('images/nextPageArrowWhite.gif'); }
+div.loader { background-image: url('images/loaderWhite.gif'); }
+div.slideshow img { border-color: #333; }
+ul.thumbs li.selected a.thumb { color: #fff; }
+div.pagination a:hover { background-color: #111; }
+div.pagination span.current { background-color: #fff; border-color: #fff; color: #000; }

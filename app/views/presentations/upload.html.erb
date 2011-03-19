@@ -46,7 +46,7 @@
 </script>
 
 
-<h2>Upload Slides for <%= @presentation.name %></h2>
+<h1>Upload Slides for <%= @presentation.name %></h1>
 <br/>
 <%= link_to 'Back', @presentation, :class=>"link_button" %>
 <%= form_for Slide.new(:presentation_id => @presentation.id), :html => {:multipart => true} do |f| %> 

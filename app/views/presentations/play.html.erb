@@ -1,11 +1,36 @@
 <%= javascript_include_tag 'galleriffic/jquery.galleriffic.js' %>
 <%= javascript_include_tag 'galleriffic/jquery.opacityrollover.js' %>
 
+<h1><%= @presentation.title %></h1>
+<br/>
+<div class="slideshow-area">
+	<div class="slideshow-container">
+		<div id="loading" class="loader"></div>
+		<div id="slideshow" class="slideshow"></div>
+    	<div id="controls" class="controls"></div>
+	</div>
+</div>
+<div id="thumbs" class="navigation">
+	<ul class="thumbs noscript">
+        <% for slide in @presentation.slides %>
+            <li>
+            	<a class="thumb" name="leaf"
+            	    href=<%= URI.encode(slide.image.url(:large)) %> 
+            	    title="<%= slide.name %>">
+                    <%= slide.name %>
+            	</a>
+            </li>
+        <% end %>
+	</ul>
+</div>
+<div style="clear: both;"></div>
+
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		// We only want these styles applied when javascript is enabled
 		$('div.navigation').css({'width' : '300px', 'float' : 'left'});
-		$('div.content').css('display', 'block');
+		$('div.slideshow-area').css('display', 'block');
 
 		// Initially set opacity on thumbs and add
 		// additional styling for hover effect on thumbs
@@ -29,12 +54,10 @@
 			controlsContainerSel:      '#controls',
 			captionContainerSel:       '#caption',
 			loadingContainerSel:       '#loading',
-			renderSSControls:          true,
+			renderSSControls:          false,
 			renderNavControls:         true,
-			playLinkText:              'Play Slideshow',
-			pauseLinkText:             'Pause Slideshow',
-			prevLinkText:              '&lsaquo; Previous Photo',
-			nextLinkText:              'Next Photo &rsaquo;',
+			prevLinkText:              '&lsaquo; Previous',
+			nextLinkText:              'Next &rsaquo;',
 			nextPageLinkText:          'Next &rsaquo;',
 			prevPageLinkText:          '&lsaquo; Prev',
 			enableHistory:             false,
@@ -57,41 +80,3 @@
 	});
 </script>
 
-<div id="page">
-	<div id="container">
-	    <h1><%= @presentation.title %></h1>
-        <br/>
-		<!-- Start Advanced Gallery Html Containers -->
-		<div id="gallery" class="content">
-			<div class="slideshow-container">
-				<div id="loading" class="loader"></div>
-				<div id="slideshow" class="slideshow"></div>
-			</div>
-			<div id="controls" class="controls"></div>
-		</div>
-		<div id="thumbs" class="navigation">
-			<ul class="thumbs noscript">
-                <% for slide in @presentation.slides %>
-                    <li>
-                        <!--
-                    	<a class="thumb" name="leaf"
-                    	    href=<%= URI.encode(slide.image.url(:medium)) %> 
-                    	    title="<%= slide.image_file_name %>">
-                            <%= image_tag URI.encode(slide.image.url(:thumb)), 
-                                :alt => slide.image_file_name %>
-                    	</a>
-                    	-->
-                    	<div style="width:280; display: block; background:red; ">
-                    	<a class="thumb" name="leaf" style="width:280; display: block;"
-                    	    href=<%= URI.encode(slide.image.url(:medium)) %> 
-                    	    title="<%= slide.name %>">
-                            <%= slide.name %>
-                    	</a>
-                    	</div>
-                    </li>
-                <% end %>
-			</ul>
-		</div>
-		<div style="clear: both;"></div>
-	</div>
-</div>

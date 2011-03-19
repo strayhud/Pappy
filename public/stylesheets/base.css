@@ -1,0 +1,71 @@
+body, div, h1, form, fieldset, input, textarea {
+	margin: 0; padding: 0; border: 0; outline: none;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none; }
+a:active {text-decoration:none;}
+
+html {
+	height: 100%;
+}
+
+body, p, ol, ul, td {
+  font-family: sans-serif;
+  font-size:   14px;
+  line-height: 18px;
+}
+
+/*** Navigation Menu ***/
+nav {
+  position:absolute;
+  top: 0px;
+  right: 20px;
+  padding: 0px 0.7em;
+  white-space: nowrap;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  font-size:   13px;
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+nav ul li a {
+  padding: 0 5px;
+}
+nav ul li a:hover { 
+	text-decoration: underline; 
+}
+
+
+/** From scaffold.css **/
+.field_with_errors {
+  padding: 2px;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
