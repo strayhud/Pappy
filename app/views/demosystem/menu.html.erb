@@ -1,8 +1,23 @@
 <h1>Demo Management System</h1>
-<div class="link_button_div"><a href="public_preso.html", class="link_button">Public Facing Presentation</a></div>
-<div class="link_button_div"><a href="InternalTrainingAndDemo_RPM.html", class="link_button">Internal Training Presentation</a></div>
-<div class="link_button_div"><a href="/qforms", class="link_button">Demo Request System</a></div>
+<div id="preso-contianer">
+	<div id="preso-list">
+        <% @presentations.each do |presentation| %>
+            <div id="preso-slide">
+                <% slide = presentation.slides.first %>
+                <a href="<%= play_path(presentation.id) %>" title="<%= presentation.name %>">
+                    <%= image_tag URI.encode(slide.image.url(:thumb)), :alt => slide.image_file_name,  %>
+                    <span id="preso-caption"> <%= presentation.name %> </span>
+                </a>
+            </div>
+        <% end %>
+	</div>
+</div>
+
+<div style="clear:both;"></div>
+
 <h3>Administation</h3>
-<div class="link_button_div"><a href="/fields", class="link_button">Manage Fields Table</a></div>
-<div class="link_button_div"><a href="/", class="link_button">Manage Users</a></div>
-<div class="link_button_div"><a href="/presentations", class="link_button">Manage Presentations</a></div>
+<div class="admin-option"><a href="/qforms">Opportunity Surveys</a></div>
+<div class="admin-option"><a href="/fields">Fields Table</a></div>
+<div class="admin-option"><a href="/">Users</a></div>
+<div class="admin-option"><a href="/presentations">Presentations</a></div>
+

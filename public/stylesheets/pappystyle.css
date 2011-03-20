@@ -98,3 +98,24 @@ ul.slides img {
 	display: inline;
 	vertical-align: top;
 }
+
+
+#preso-contianer {
+}
+#preso-list {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+#preso-slide {
+	margin: 5px 5px;
+	width: 120px; height: 130px;
+	text-align: center;
+	float: left;
+}
+#preso-caption {
+	text-align: center;
+}
+#preso-slide:focus {
+	outline: none;
+}
