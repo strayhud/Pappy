@@ -1,13 +1,10 @@
 <li>
-	<a class="slide" href=<%= URI.encode(slide.image.url(:medium)) %> title="<%= slide.image_file_name %>">
+	<a class="slide" href="<%= edit_slide_path(slide) %>" title="<%= slide.name %>">
 	    <div class="slide-container">
            <%= image_tag URI.encode(slide.image.url(:small)), :alt => slide.image_file_name %>
         </div>
 	</a>
 	<div class="caption">
-		<div class="image-title"><%= slide.image_file_name %></div>
-    	<% if edit_mode %>
-		    <%= link_to 'Delete', slide, :confirm => 'Are you sure?', :method => :delete %>
-    	<% end %>
+		<span class="editable_text"><%= slide.name %></span>
 	</div>
 </li>

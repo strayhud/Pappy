@@ -22,10 +22,10 @@
       </div>
       <div class="field">
         <%= f.label "Index:" %>
-        <%= f.text_field :number, :class=>"number_input_field", :style=>"width: 40px;" %>
+        <%= f.text_field :position, :class=>"number_input_field", :style=>"width: 40px;" %>
       </div>
   </div>
-  <%= link_to 'Back', edit_presentation_path(@slide.presentation), :class=>"link_button" %>
+  <%= link_to 'Back', @slide.presentation, :class=>"link_button" %>
   <%= f.submit "Update", :class=>"input_button" %>
   	<%= link_to "Delete", @slide, :confirm => 'Are you sure?', :method => :delete, :class=>"link_button" %>
 

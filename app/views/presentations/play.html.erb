@@ -12,7 +12,7 @@
 </div>
 <div id="thumbs" class="navigation">
 	<ul class="thumbs noscript">
-        <% for slide in @presentation.slides %>
+        <% @slides.each do |slide| %>
             <li>
             	<a class="thumb" name="leaf"
             	    href=<%= URI.encode(slide.image.url(:large)) %> 

@@ -3,7 +3,7 @@ class CreateSlides < ActiveRecord::Migration
     create_table :slides do |t|
       t.integer :presentation_id
       t.integer :image_id
-      t.integer :number
+      t.integer :position
       t.string  :name
       t.string  :image_file_name
       t.string  :image_content_type

@@ -1,17 +1,3 @@
-<%= javascript_include_tag "jquery.editinplace.js" %>
-
-<script type="text/javascript" charset="utf-8">
-
-$(document).ready(function(){
-	$(".editable_text").editInPlace({
-		callback: function(unused, enteredText) { return enteredText; },
-		// url: './server.php',
-		show_buttons: false
-	});
-});
-
-</script>
-
 <%= form_for(@presentation) do |f| %>
   <% if @presentation.errors.any? %>
     <div id="error_explanation">
@@ -37,15 +23,7 @@ $(document).ready(function(){
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  
-  <div id="slides">
-  	<ul id="slide_list" class="slides noscript">
-          <%= render :partial => 'slides/edit', :collection=>@presentation.slides, :as => :slide %>
-  	</ul>
-  	<div style="clear:both;"></div>
-  </div>
-  <br/><br/>
-  
+
+  <%= link_to 'Back', @presentation, :class=>"link_button" %>
   <%= f.submit "Submit", :class=>"input_button" %>
-  <%= link_to 'Back', presentations_path, :class=>"link_button" %>
 <% end %>

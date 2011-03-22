@@ -1,13 +1,28 @@
+<%= javascript_include_tag "jquery.editinplace.js" %>
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function(){
+	$(".editable_text").editInPlace({
+		callback: function(unused, enteredText) { return enteredText; },
+		// url: './server.php',
+		show_buttons: false
+	});
+});
+
+</script>
+
+
 <h1>  <%= @presentation.title %> </h1>
 
 <p>
   <b>Description:</b>
   <%= @presentation.description %>
+  <%= link_to image_tag("pencil.png", :border=>0), :action => 'edit', :id =>@presentation.id %>
 </p>
 <br/>
 
 <%= link_to 'Back', presentations_path, :class=>"link_button" %>
-<%= link_to 'Edit', edit_presentation_path(@presentation), :class=>"link_button" %>
+<!--%= link_to 'Edit', edit_presentation_path(@presentation), :class=>"link_button" %-->
 <%= link_to 'Upload Slides', upload_path(:id=>@presentation.id), :class=>"link_button "%>
 <%= link_to 'Play', play_path(:id=>@presentation.id), :class=>"link_button "%>
 <%= link_to 'Delete', @presentation, :class=>"link_button", :confirm => 'Are you sure?', :method => :delete %>
@@ -15,7 +30,8 @@
 
 <div id="slides">
 	<ul id="slide_list" class="slides noscript">
-        <%= render :partial => 'slides/show', :collection=>@presentation.slides, :as => :slide %>
+        <%= render :partial => 'slides/slide', :collection=>@slides %>
 	</ul>
 	<div style="clear:both;"></div>
 </div>
+

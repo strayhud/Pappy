@@ -23,6 +23,7 @@ class PresentationsController < ApplicationController
 
   def play
     @presentation = Presentation.find(params[:id])
+    @slides = @presentation.slides.order("position")
 
     respond_to do |format|
       format.html # upload.html.erb
@@ -34,7 +35,8 @@ class PresentationsController < ApplicationController
   # GET /presentations/1.xml
   def show
     @presentation = Presentation.find(params[:id], :include => :slides)
-
+    @slides = @presentation.slides.order("position")
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @presentation }

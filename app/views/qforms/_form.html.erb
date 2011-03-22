@@ -59,25 +59,25 @@
       <div class="field">
           <div class="form_row">
               <label for="technology_names[]">TECHNOLOGIES: </label>
-              (JAVA)<% for attr in Field.where(:name=>'Java') do %>
+              JAVA:<% for attr in Field.where(:name=>'Java') do %>
               <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
               <%= attr.value %>
               <% end %>
               <br/><br/>
               <label> </label>
-              (PHP)<% for attr in Field.where(:name=>'PHP') do %>
+              PHP:<% for attr in Field.where(:name=>'PHP') do %>
               <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
               <%= attr.value %>
               <% end %>
               <br/><br/>
               <label> </label>
-              (RAILS)<% for attr in Field.where(:name=>'Rails') do %>
+              RAILS:<% for attr in Field.where(:name=>'Rails') do %>
               <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
               <%= attr.value %>
               <% end %>
               <br/><br/>
               <label> </label>
-              (.NET)<% for attr in Field.where(:name=>'.NET') do %>
+              .NET:<% for attr in Field.where(:name=>'.NET') do %>
               <%= check_box_tag 'technology_names[]', attr.value, name_in_array?(attr.value,@qform.technologies) %>
               <%= attr.value %>
               <% end %>
