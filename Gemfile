@@ -5,8 +5,9 @@ gem 'mysql'
 gem 'sqlite3'
 gem 'mail'
 gem 'devise'
-gem "paperclip", "~> 2.3"
-
+gem 'paperclip', '~> 2.3'
+gem 'best_in_place'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

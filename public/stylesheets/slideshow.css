@@ -39,22 +39,20 @@ div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.sli
 div.slideshow img {
 	vertical-align: top;
 	border: 1px solid #ccc;
+	margin-top:20px;
 }
 
 div.controls {
 	margin-top: 5px;
 	height: 23px;
 	position:absolute;
-	bottom:0px;
+	bottom:-20px;
 }
 div.controls a {
 	padding: 5px;
 }
 div.ss-controls {
 	float: left;
-}
-div.nav-controls {
-	float: right;
 }
 div.loader {
 	position: absolute;
@@ -66,8 +64,6 @@ div.loader {
 	width: 808px;
 	height: 630px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
-a.prev { background-image: url('prev.png'); }
-a.next { background-image: url('images/loader.gif'); }
 div.download {
 	float: right;
 }

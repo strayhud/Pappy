@@ -88,8 +88,6 @@ nav ul li a:visited { color: #09c; }
 /* Slide Show */
 div.navigation a.prev { background-image: url('images/prevPageArrowWhite.gif'); }
 div.navigation a.next { background-image: url('images/nextPageArrowWhite.gif'); }
-div.nav-controls a.prev { background-image: url('prev.png'); }
-div.nav-controls a.next { background-image: url('images/next.png'); }
 div.loader { background-image: url('images/loaderWhite.gif'); }
 div.slideshow img { border-color: #333; }
 ul.thumbs li.selected a.thumb { color: #fff; }

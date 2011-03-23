@@ -76,6 +76,10 @@ textarea {
 
 
 /* Settings for Slide showing/editing */
+#slides {
+	position:relative;
+	margin-top: 10px;
+}
 ul.slides {
 	clear: both;
 	margin: 0;
@@ -104,6 +108,22 @@ ul.slides img {
 
 #preso-contianer {
 }
+#preso-fields {
+	float:left;
+	width: 50%;
+}
+#preso-fields label {
+	width: 100px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 0px;
+}
+#preso-buttons {
+	clear: both;
+	position: relative;
+	top: 10px;
+	bottom: 15px;
+}
 #preso-list {
 	margin: 0;
 	padding: 0;
@@ -120,4 +140,79 @@ ul.slides img {
 }
 #preso-slide:focus {
 	outline: none;
+}
+
+* ======================================================= */
+/* Best In Place Styles */
+/* ======================================================= */
+input[type=submit] {
+  width: 5em;
+}
+input[type=checkbox] {
+  width: 1em;
+}
+textarea {
+  max-height:15em;
+  min-width: 40em;
+}
+.best_in_place input:focus {
+	width: 80%;
+	font-size: 12px;
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+}
+
+.best_in_place {
+  padding: .1m;
+  cursor: hand;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+.best_in_place:hover, #user_account .do_hover {
+  padding: 2px;
+	color: #f2f2f2; text-shadow: 0px -1px 0px #334f71;
+	background: #1A6377;
+	background: -moz-linear-gradient(top, #546A7F 0%, #1A6377 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#546A7F), color-stop(20%,#1A6377)); /* webkit */
+}
+.info_edit {
+  float: right;
+  cursor: hand;
+  cursor: pointer;
+}
+
+/* Missatges Flotants */
+
+.purr {
+  position: fixed;
+  width: 324px;
+  top: 20px;
+  right: 15px;
+  padding: 20px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 2px solid #AAA;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+}
+.purr:hover .close {
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  text-indent: -9999px;
+  background: url("/images/close-button.gif") no-repeat;
 }

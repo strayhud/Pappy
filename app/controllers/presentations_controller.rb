@@ -83,10 +83,10 @@ class PresentationsController < ApplicationController
     respond_to do |format|
       if @presentation.update_attributes(params[:presentation])
         format.html { redirect_to(@presentation, :notice => 'Presentation was successfully updated.') }
-        format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @presentation.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @presentation.errors, :status => :unprocessable_entity }
       end
     end
   end

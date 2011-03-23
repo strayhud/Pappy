@@ -1,32 +1,35 @@
-<%= javascript_include_tag "jquery.editinplace.js" %>
+
+<%= javascript_include_tag "jquery.purr.js" %>
+<%= javascript_include_tag "best_in_place.js" %>
 <script type="text/javascript" charset="utf-8">
-
-$(document).ready(function(){
-	$(".editable_text").editInPlace({
-		callback: function(unused, enteredText) { return enteredText; },
-		// url: './server.php',
-		show_buttons: false
-	});
+$(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place()
 });
-
 </script>
 
 
-<h1>  <%= @presentation.title %> </h1>
+<h1><%= @presentation.name %></h1>
 
-<p>
-  <b>Description:</b>
-  <%= @presentation.description %>
-  <%= link_to image_tag("pencil.png", :border=>0), :action => 'edit', :id =>@presentation.id %>
-</p>
-<br/>
+<div id="preso-fields">
+    <div class="form_row">
+        <label>Title:</label>
+        <%= best_in_place @presentation, :title, :type => :input, :nil => "Click me to add content!" %>
+    </div>
+    <div class="form_row">
+        <label>Description:</label>
+        <%= best_in_place @presentation, :description, :type => :input, :nil => "Click me to add content!" %>
+    </div>
+</div>
 
+<div id="preso-buttons">
 <%= link_to 'Back', presentations_path, :class=>"link_button" %>
 <!--%= link_to 'Edit', edit_presentation_path(@presentation), :class=>"link_button" %-->
 <%= link_to 'Upload Slides', upload_path(:id=>@presentation.id), :class=>"link_button "%>
 <%= link_to 'Play', play_path(:id=>@presentation.id), :class=>"link_button "%>
 <%= link_to 'Delete', @presentation, :class=>"link_button", :confirm => 'Are you sure?', :method => :delete %>
-<br/><br/>
+</div>
+<br/>
 
 <div id="slides">
 	<ul id="slide_list" class="slides noscript">

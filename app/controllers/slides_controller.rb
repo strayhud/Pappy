@@ -41,8 +41,8 @@ class SlidesController < ApplicationController
   # PUT /slides/1.xml
   def update
     @slide = Slide.find(params[:id])
-    @slide.name = params[:slide][:name]
-    @slide.position = params[:slide][:position]
+    @slide.name = params[:slide][:name] unless params[:slide][:name].nil?
+    @slide.position = params[:slide][:position] unless params[:slide][:position].nil?
     if @slide.update_attributes(params[:slide])
       flash[:notice] = "Successfully updated slide."
       redirect_to @slide.presentation
