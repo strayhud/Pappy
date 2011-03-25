@@ -43,7 +43,7 @@ label {
 	width: 400px; 
 }
 .text_input_field {
-	height: 25px; padding: 4px 10px 0px 10px; margin: 0px 0 10px 0;
+	height: 25px; padding: 4px 10px 0px 10px; margin: 0px 0 10px 0; 
 	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 	font-family: sans-serif; font-size: 16px; 
 }
@@ -145,13 +145,13 @@ ul.slides img {
 * ======================================================= */
 /* Best In Place Styles */
 /* ======================================================= */
-input[type=submit] {
+.best_in_place input[type=submit] {
   width: 5em;
 }
-input[type=checkbox] {
+.best_in_place input[type=checkbox] {
   width: 1em;
 }
-textarea {
+.best_in_place textarea {
   max-height:15em;
   min-width: 40em;
 }

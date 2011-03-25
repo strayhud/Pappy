@@ -6,4 +6,6 @@ class Slide < ActiveRecord::Base
                        :medium => "640x480", :large => "800x600"  },
           :path => ":rails_root/public/system/slides/:presentation_name/:style/:filename",
           :url  => "/system/slides/:presentation_name/:style/:filename"
+    validates :name, :presence => {:message => "can't be blank"}
+    validates :position, :presence => {:message => "must be specified"}          
 end

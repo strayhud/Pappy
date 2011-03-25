@@ -15,13 +15,13 @@
      <%= image_tag URI.encode(@slide.image.url(:small)), :alt => @slide.image_file_name %>
   </div>
   <br/>
-  <div style="margin-left: -100px;">
+  <div >
       <div class="field" >
-        <%= f.label :name %>
+        <label>Name: </label>
         <%= f.text_field :name, :class=>"text_input_field" %>
       </div>
       <div class="field">
-        <%= f.label "Index:" %>
+        <label>Index: </label>
         <%= f.text_field :position, :class=>"number_input_field", :style=>"width: 40px;" %>
       </div>
   </div>
